@@ -21,18 +21,18 @@ namespace BookListRazorPages.Pages.BookList
 
         }
 
-        public async Task<IActionResult> OnPost(Book.Book bookObj)
+        public async Task<IActionResult> OnPost()
         {
             //if the model state is valid, we can add book to the database
             if (ModelState.IsValid)
-            {
+            {   
                 await _db.Book.AddAsync(Book);
                 await _db.SaveChangesAsync();
                 return RedirectToPage("Index");
 
             }
             else
-            {
+            { 
                 return Page();
             }
         }
